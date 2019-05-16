@@ -16,6 +16,7 @@ public class ITEmployee implements Employee {
 
 	@Override
 	public void resolveTask() {
+		System.out.print("I am an IT man "); 
 		t.doTask();
 		
 	}

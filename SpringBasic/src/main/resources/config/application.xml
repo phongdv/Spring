@@ -3,9 +3,10 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
 
-
+	
 	<bean id="fixTVTask" class="SpringBasic.FixTV"></bean>
 	<bean id="itEmployee" class="SpringBasic.ITEmployee">
-		<constructor-arg ref="fixTVTask"></constructor-arg>
+		<constructor-arg ref="fixPrinter"></constructor-arg>
 	</bean>
+	<bean id="fixPrinter" class="SpringBasic.FixPrinterTask"></bean>
 </beans>
