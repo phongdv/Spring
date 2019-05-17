@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+	<!-- <bean id="cdLyHai" class="compactdisk.CD"> <constructor-arg value="Tron 
+		Doi Ben Em 8"></constructor-arg> <constructor-arg value="Ly Hai"></constructor-arg> 
+		<constructor-arg> <list> <value>Tinh Nhat Phai</value> <value>Tron đời bên 
+		em</value> <value>Kiep ve sau</value> <value>Nho Oi</value> </list> </constructor-arg> 
+		</bean> -->
+
+
+	<bean id="cdLyHai" class="compactdisk.CD">
+		<property name="title" value="Tron Doi Ben Em" />
+		<property name="singer" value="Ly hai" />
+		<property name="track">
+			<list>
+				<value>Tinh Nhat Phai</value>
+				<value>Kiep ve sau</value>
+				<value>Nho Oi</value>
+			</list>
+		</property>
+
+	</bean>
+
+
+
+	<bean id="cdMordemTalking" class="compactdisk.CD">
+		<constructor-arg value="Morden talking vol 1"></constructor-arg>
+		<constructor-arg value="Modern talking"></constructor-arg>
+		<constructor-arg>
+			<list>
+				<value>We don't talk any more</value>
+				<value>Chung ta ko luoc dc rau</value>
+				<value>Lac troi</value>
+				<value>Son tung MTP</value>
+			</list>
+		</constructor-arg>
+	</bean>
+
+
+
+	<!-- <bean id="cdPlayer" class="IPlayer.MasterDiskPlayer">
+		<constructor-arg>
+			<list>
+				<ref bean="cdLyHai" />
+				<ref bean="cdMordemTalking" />
+			</list>
+		</constructor-arg>
+	</bean> -->
+	
+	 <bean id="cdPlayer" class="IPlayer.MasterDiskPlayer">
+		<property name="listOfDisk">
+		<list>
+		<ref bean="cdMordemTalking"/>
+		<ref bean="cdLyHai"/>
+		</list>
+		</property>
+	</bean> 
+	
+	
+	
+</beans>

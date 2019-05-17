@@ -3,6 +3,7 @@ package runner;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import IPlayer.Disk;
+import IPlayer.Diskplayer;
 import config.CdPlayerConfig;
 import config.sib.DongNhi;
 
@@ -14,9 +15,10 @@ public class TestRun {
 //		Disk d = (Disk) context.getBean("myTamDisk"); ok
 		Disk d = (Disk) context.getBean("theBesDiskOfMyTam");
 		Disk dongnhi = (Disk) context.getBean(DongNhi.class);
-		d.play();
-		dongnhi.play();
-		
+	//	d.play();
+		//dongnhi.play();
+		Diskplayer player = context.getBean(Diskplayer.class);
+		player.play();
 				
 		
 		
