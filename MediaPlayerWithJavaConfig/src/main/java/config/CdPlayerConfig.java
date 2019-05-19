@@ -9,7 +9,7 @@ import config.sib.DongNhi;
 @Configuration
 public class CdPlayerConfig {
 	
-	@Bean(name="theBesDiskOfMyTam")
+	@Bean()
 	public MyTamDisk getMyTamDisk(){
 		return new MyTamDisk();
 	}

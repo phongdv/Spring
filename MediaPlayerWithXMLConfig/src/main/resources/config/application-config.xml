@@ -40,24 +40,50 @@
 
 
 
-	<!-- <bean id="cdPlayer" class="IPlayer.MasterDiskPlayer">
-		<constructor-arg>
-			<list>
-				<ref bean="cdLyHai" />
-				<ref bean="cdMordemTalking" />
-			</list>
-		</constructor-arg>
-	</bean> -->
-	
-	 <bean id="cdPlayer" class="IPlayer.MasterDiskPlayer">
+	<!-- <bean id="cdPlayer" class="IPlayer.MasterDiskPlayer"> <constructor-arg> 
+		<list> <ref bean="cdLyHai" /> <ref bean="cdMordemTalking" /> </list> </constructor-arg> 
+		</bean> -->
+
+	<bean id="cdPlayer" class="IPlayer.MasterDiskPlayer">
 		<property name="listOfDisk">
-		<list>
-		<ref bean="cdMordemTalking"/>
-		<ref bean="cdLyHai"/>
-		</list>
+			<list>
+				<ref bean="cdMordemTalking" />
+				<ref bean="cdLyHai" />
+			</list>
 		</property>
-	</bean> 
-	
-	
-	
+	</bean>
+<bean id="entityManagerFactory"
+  class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+    <property name="dataSource" ref="dataSource" />
+    <property name="packagesToScan" value="com.baeldung.persistence.model" />
+    <property name="jpaVendorAdapter">
+        <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
+    </property>
+    <property name="jpaProperties">
+        <props>
+            <prop key="hibernate.hbm2ddl.auto">create-drop</prop>
+            <prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</prop>
+        </props>
+    </property>
+</bean>
+ 
+<bean id="dataSource"
+  class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    <property name="driverClassName" value="org.postgresql.Driver" />
+    <property name="url" value="jdbc:postgresql://localhost:5432/testDB" />
+    <property name="username" value="postgres" />
+    <property name="password" value="postgres" />
+</bean>
+ 
+<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+    <property name="entityManagerFactory" ref="entityManagerFactory" />
+</bean>
+
+<!-- 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+    <property name="entityManagerFactory" ref="myEmf" />
+</bean>
+ -->
+ 
+<bean id="persistenceExceptionTranslationPostProcessor" class=
+  "org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
 </beans>
