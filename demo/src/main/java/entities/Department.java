@@ -2,7 +2,9 @@ package entities;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -14,19 +16,19 @@ import javax.persistence.Table;
 public class Department {
 
 	
-	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;	
+	 @Id
+	 @GeneratedValue(strategy = GenerationType.AUTO)
+	 private Long id;	
 	private String deparmentName;
-	@OneToMany
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "Department")
 	private List<Employee> employess;
 	
 	
 	
-	public List getEmployess() {
+	public List<Employee> getEmployess() {
 		return employess;
 	}
-	public void setEmployess(List employess) {
+	public void setEmployess(List<Employee> employess) {
 		this.employess = employess;
 	}
 	public long getId() {
@@ -35,6 +37,7 @@ public class Department {
 	public void setId(long id) {
 		this.id = id;
 	}
+
 	public String getDeparmentName() {
 		return deparmentName;
 	}

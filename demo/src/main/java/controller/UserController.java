@@ -35,20 +35,21 @@ public class UserController {
 	public String test() {
 		services.saveUser(new User("PhongDoan", "123456"));
 		Department dep = new Department();
-		dep.setDeparmentName("Insurance");
-		List<Employee> list = new ArrayList<>();
-		Employee em1= new Employee();
-		em1.setEmployeeName("phong doan");
-		Employee em2= new Employee();
-		em1.setEmployeeName("Linh Nguyen");
-		Employee em3= new Employee();
-		em1.setEmployeeName("Xuyen Nguyen");
-		
-		list.add(em1);
-		list.add(em2);
-		list.add(em3);
-		dep.setEmployess(list);
 		depServices.saveDep(dep);
+//		dep.setDeparmentName("Insurance");
+//		List<Employee> list = new ArrayList<>();
+//		Employee em1= new Employee();
+//		em1.setEmployeeName("phong doan");
+//		Employee em2= new Employee();
+//		em1.setEmployeeName("Linh Nguyen");
+//		Employee em3= new Employee();
+//		em1.setEmployeeName("Xuyen Nguyen");
+//		
+//		list.add(em1);
+//		list.add(em2);
+//		list.add(em3);
+//		dep.setEmployess(list);
+//		depServices.saveDep(dep);
 		
 		
 		

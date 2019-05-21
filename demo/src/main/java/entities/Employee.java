@@ -1,10 +1,14 @@
 package entities;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -14,12 +18,20 @@ public class Employee {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
+	
+	
+	 
 	private String employeeName;
-	@ManyToOne
-	private Department departement;
+	@ManyToOne(cascade=CascadeType.ALL, targetEntity=Department.class)
+    @JoinColumn(name="id")
+	private Department Department;
+	
+	
+	
+	
 	public long getId() {
 		return id;
-	}
+	}	
 	public void setId(long id) {
 		this.id = id;
 	}
@@ -30,10 +42,10 @@ public class Employee {
 		this.employeeName = employeeName;
 	}
 	public Department getDepartement() {
-		return departement;
+		return Department;
 	}
 	public void setDepartement(Department departement) {
-		this.departement = departement;
+		this.Department = departement;
 	}
 	
 	
