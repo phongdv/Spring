@@ -18,6 +18,7 @@ public class Department {
 	
 	 @Id
 	 @GeneratedValue(strategy = GenerationType.AUTO)
+	 @Column(name="dep_id")
 	 private Long id;	
 	private String deparmentName;
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "Department")

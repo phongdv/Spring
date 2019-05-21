@@ -23,7 +23,7 @@ public class Employee {
 	 
 	private String employeeName;
 	@ManyToOne(cascade=CascadeType.ALL, targetEntity=Department.class)
-    @JoinColumn(name="id")
+    @JoinColumn(name="dep_id")
 	private Department Department;
 	
 	
