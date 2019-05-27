@@ -32,7 +32,7 @@ public class Department {
 	public void setEmployess(List<Employee> employess) {
 		this.employess = employess;
 	}
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 	public void setId(long id) {
